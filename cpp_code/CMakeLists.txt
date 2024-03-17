@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set the project name and version
-project(PickupDeliveryProblem VERSION 1.0)
+project(CXX_Project VERSION 1.0)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)

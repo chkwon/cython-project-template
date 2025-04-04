@@ -6,9 +6,12 @@ def test_double():
     
     v2 = mcp.double_vector_cpp(v)
     assert np.array_equal(v2, v * 2) # v is not changed
-    
+    print(v)
+
     mcp.double_vector_cpp_nocopy(v)
     assert np.array_equal(v2, v) # v is now changed
-    
-    
-    
+    print(v)
+
+    mcp.double_span_cpp_nocopy(v)
+    assert np.array_equal(v2 * 2, v) # v is again changed
+    print(v)

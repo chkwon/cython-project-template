@@ -8,10 +8,10 @@ extensions = [
         "mycypackage._foo",
         sources=["mycypackage/_foo.pyx"],
         include_dirs=[numpy.get_include()],
-        extra_compile_args=["-O3", "-std=c++17"],
+        extra_compile_args=["-O3", "-std=c++20"],
         # extra_link_args=["-Wl,-flat_namespace,-undefined,suppress"],        
         language="c++",
-        extra_link_args=["-std=c++17"]        
+        extra_link_args=["-std=c++20"]        
     )
 ]
 

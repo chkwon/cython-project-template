@@ -8,6 +8,21 @@ void display_vector(const std::vector<int> &v){
     std::cout << std::endl;
 }
 
+// This function can receive vector. 
+// To pass a vector to this function, we better not use &.
+// std::span is a lightweight, non-owning view over a contiguous sequence of objects.
+void multiply_span(std::span<int> v, int factor){
+    for (auto &i : v){
+        i *= factor;
+    }
+}
+
+// This function does not make a copy of the array
+void multiply_array_via_span(int* arr, int len, int factor){
+    std::span<int> span(arr, len);
+    multiply_span(span, factor);
+}
+
 // This function does not make a copy of the vector
 void multiply_vector(std::vector<int>& v, int factor){
     for (auto &i : v){
@@ -37,6 +52,16 @@ int main() {
     multiply_vector(myvector, 2);
 
     std::cout << "myvector after multiply_vector:\t";
+    display_vector(myvector);
+
+    multiply_span(myvector, 2);
+
+    std::cout << "myvector after multiply_span:\t";
+    display_vector(myvector);
+
+    multiply_array_via_span(myvector.data(), myvector.size(), 2);
+    
+    std::cout << "myvector after multiply_array_via_span:\t";
     display_vector(myvector);
 
 
